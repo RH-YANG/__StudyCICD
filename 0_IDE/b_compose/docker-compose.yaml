@@ -1,0 +1,35 @@
+name: "aws-cicd-practice"
+services:
+  server:
+    image: rrhh1122/ide_for_cicd:0.0.1
+    container_name: "ide"
+    environment:
+      FILE__PASSWORD: /run/secrets/code-server-password
+    env_file:
+      - .env
+    working_dir: /code/__StudyCICD
+    ports:
+      - "8444:8443"
+      - "5500:5500"
+    secrets:
+      - code-server-password
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      # Docker 데몬의 소켓 파일을 컨테이너에 연결
+      # 컨테이너가 호스트의 Docker 엔진에 접근가능 (== 컨테이너 내부에서 다른 컨테이너를 관리하거나 새로운 컨테이너 생성 가능)
+      - ide_config:/config
+      # 컨테이너 재시작시에도 ide 설정 유지
+      - src:/code/__StudyCICD
+      # 실습 코드 로컬과 연결(깃remote도 같이 연동됨)
+
+volumes:
+  ide_config:
+    external: true
+    name: ide_config
+  src:
+    external: true
+    name: src
+
+secrets:
+  code-server-password:
+    file: password.txt

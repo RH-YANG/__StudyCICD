@@ -1,1 +1,11 @@
+# 로컬 vscode 설정 
 **/.vscode
+
+# 원격 vscode 설정
+**/ide_config
+
+# 원격 ide 서버 비밀번호
+**/password.txt
+
+# 다양한 설정파일
+**/.env
