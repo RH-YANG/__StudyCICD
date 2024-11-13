@@ -5,7 +5,7 @@ name: start-workflow-study
 on: [push]
 
 jobs:
-  A.기본job: 
+  A_basic_job: # job 이름은 영문만 가능
     runs-on: ubuntu-latest # 깃헙에서 제공하는 해당 OS 서버에서 아래 스탭들이 돌아감
     steps:
       - name: 1. Hello 출력하기
@@ -15,17 +15,17 @@ jobs:
           node -v
           npm -v
 
-  B.병렬Job: # 일반적으로 여러개의 job은 병렬로 돌아간다
+  B_parallel_job: # 일반적으로 여러개의 job은 병렬로 돌아간다
     runs-on: macos-latest
     steps:
       - name: 1. software version 출력하기
         run: sw_vers
 
-  C.의존성Job:
+  C_dependant_job: # needs항목으로 의존성을 주입할 수 있다.
     runs-on: windows-latest
-    needs: A.기본job # 여기서 의존성이 주입된다.
+    needs: A_basic_job
     steps:
-      - name: echo a string
+      - name: 1. 문자열 출력
         run: Write-Output "Windows String"
-      - name: Error Step
+      - name: 2. 일부러 에러 출력 # 에러상황을 확인하기 위해 고의로 에러 출력
         run: doesnotexit
