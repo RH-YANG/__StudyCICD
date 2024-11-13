@@ -1,0 +1,28 @@
+name: start-workflow-study
+on: [push]
+
+jobs:
+  A_basic_job: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Hello 출력하기
+        run: echo "Hello World"
+      - name: 2. 여러줄 라인 명령
+        run: |
+          node -v
+          npm -v
+
+  B_parallel_job: 
+    runs-on: macos-latest
+    steps:
+      - name: 1. software version 출력하기
+        run: sw_vers
+
+  C_dependant_job:
+    runs-on: windows-latest
+    needs: A_basic_job
+    steps:
+      - name: 1. 문자열 출력
+        run: Write-Output "Windows String"
+      # - name: 2. 일부러 에러 출력
+      #   run: doesnotexit
