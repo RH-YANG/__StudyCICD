@@ -2,7 +2,7 @@ name: start-workflow-study
 on: [push]
 
 jobs:
-  A.기본job: 
+  A_기본job: 
     runs-on: ubuntu-latest
     steps:
       - name: 1. Hello 출력하기
@@ -12,13 +12,13 @@ jobs:
           node -v
           npm -v
 
-  B.병렬Job: 
+  B_병렬Job: 
     runs-on: macos-latest
     steps:
       - name: 1. software version 출력하기
         run: sw_vers
 
-  C.의존성Job:
+  C_의존성Job:
     runs-on: windows-latest
     needs: A.기본job 
     steps:
