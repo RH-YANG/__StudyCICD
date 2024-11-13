@@ -14,7 +14,9 @@ docker volume create \
 docker volume ls
 
 # 4. docker-compose 작동
+    # yaml파일이 있는 디렉토리까지 와서 명령을 해야한다
 docker-compose up -d # -d를 하면 로그를 보지 않고 빠져나온다(백그라운드 운영)
 
 # 5. docker-compose 해제
+    # yaml파일이 있는 디렉토리까지 와서 명령을 해야한다
 docker-compose down
