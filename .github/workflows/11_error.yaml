@@ -8,8 +8,12 @@ jobs:
       - name: 1. 로그 출력 방식
         run:  |
           echo "::error::This is an error message"
-          echo "::debug::This is a debug message"
           echo "::warning::This is a warning message"
           echo "::notice::This is a notice message"
-        env:
-          GITHUB_DEBUG: true
+      - name: 2. 로그 그룹으로 보기
+        run: |
+          echo "::group::My group title"
+          echo "Inside group"
+          echo "Inside group 2"
+          echo "Inside group 3"
+          echo "::endgroup::"
