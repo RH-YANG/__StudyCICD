@@ -1,7 +1,7 @@
 # 실제 워크플로우 등록은 저장소root/.github/workflows에서 해야한다
 # 현재 디렉토리의 파일은 워크플로우의 해설본
 
-name: cmd log settings
+name: cmd-log-settings
 on: [push]
 
 name: cmd log settings

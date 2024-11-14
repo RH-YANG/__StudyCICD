@@ -1,4 +1,4 @@
-name: cmd log settings
+name: cmd-log-settings
 on: [push]
 
 jobs:
