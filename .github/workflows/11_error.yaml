@@ -1,15 +1,13 @@
-name: error settings
+name: cmd log settings
 on: [push]
 
 jobs:
-  test-error:
+  highlight-line:
     runs-on: ubuntu-latest
     steps:
-      - name: Setting an error message
-        run: echo "::error::Missing semicolon"
-      - name: Setting a debug message with params  
-        run: echo "::debug::Missing Semicolon"
-      - name: Setting an warning message with params
-        run: echo "::warning::Missing Semicolon"
-      - name: Setting an notice message with params
-        run: echo "::notice::Missing Semicolon"
+      - name: 1. 로그 출력 방식
+        run:  |
+          echo "::error::This is an error message"
+          echo "::debug::This is a debug message"
+          echo "::warning::This is a warning message"
+          echo "::notice::This is a notice message"
