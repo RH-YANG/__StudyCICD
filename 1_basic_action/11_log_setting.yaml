@@ -14,8 +14,14 @@ jobs:
       - name: 1. 로그 출력 방식 # error, warning, notice는 각각 붉은색, 노란색, 흰색으로 표기된다
         run:  |
           echo "::error::This is an error message" 
+          echo "::debug::Missing Semicolon"
           echo "::warning::This is a warning message"
           echo "::notice::This is a notice message"
+        # Debug 로그 출력 활성화 하기
+        # 1. 깃헙 저장소 > Settings
+        # 2. 왼쪽 목록에서 Secrets and variables > Actions
+        # 3. Repository secrets에서 [New repository secret]
+        # 4. Name에 ACTIONS_STEP_DEBUG, Secret에 true (false가 디폴트)
 
       - name: 2. 로그 그룹으로 보기 # 여러개의 로그를 그룹화해서 가독성을 높인다
         run: |
