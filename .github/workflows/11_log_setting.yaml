@@ -4,11 +4,13 @@ on: [push]
 jobs:
   cmd-log-settings:
     runs-on: ubuntu-latest
+    env:
+      ACTIONS_STEP_DEBUG: ${{ secrets.ACTIONS_STEP_DEBUG }}
     steps:
       - name: 1. 로그 출력 방식
         run:  |
           echo "::error::This is an error message"
-          echo "::debug::Missing Semicolon"
+          echo "::debug::This is an debug message"
           echo "::warning::This is a warning message"
           echo "::notice::This is a notice message"
 
