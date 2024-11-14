@@ -1,0 +1,31 @@
+# 실제 워크플로우 등록은 저장소root/.github/workflows에서 해야한다
+# 현재 디렉토리의 파일은 워크플로우의 해설본
+
+name: cmd log settings
+on: [push]
+
+name: cmd log settings
+on: [push]
+
+jobs:
+  cmd-log-settings:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. 로그 출력 방식 # error, warning, notice는 각각 붉은색, 노란색, 흰색으로 표기된다
+        run:  |
+          echo "::error::This is an error message" 
+          echo "::warning::This is a warning message"
+          echo "::notice::This is a notice message"
+
+      - name: 2. 로그 그룹으로 보기 # 여러개의 로그를 그룹화해서 가독성을 높인다
+        run: |
+          echo "::group::My group title"
+          echo "Inside group"
+          echo "Inside group 2"
+          echo "Inside group 3"
+          echo "::endgroup::"
+
+      - name: 3. 비밀 정보 마스킹하기 # 첫번째 명령은 마스킹만 등록하고 실제 출력되지 않는다.
+        run: |
+          echo "::add-mask::Secret String"
+          echo "Secret String"
