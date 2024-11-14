@@ -20,6 +20,6 @@ jobs:
           echo "::endgroup::"
 
       - name: 3. 비밀 정보 마스킹하기
-        run: echo "::add-mask::Secret String"
-      - name: Echo a secret
-        run: echo "Secret String"
+        run: |
+          "::add-mask::Secret String"
+          echo "Secret String"
