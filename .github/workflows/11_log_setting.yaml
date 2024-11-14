@@ -10,6 +10,7 @@ jobs:
           echo "::error::This is an error message"
           echo "::warning::This is a warning message"
           echo "::notice::This is a notice message"
+
       - name: 2. 로그 그룹으로 보기
         run: |
           echo "::group::My group title"
@@ -17,3 +18,8 @@ jobs:
           echo "Inside group 2"
           echo "Inside group 3"
           echo "::endgroup::"
+
+      - name: 3. 비밀 정보 마스킹하기
+        run: echo "::add-mask::Secret String"
+      - name: Echo a secret
+        run: echo "Secret String"
